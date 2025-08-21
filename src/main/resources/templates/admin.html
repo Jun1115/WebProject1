@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>🛠 관리자 페이지</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/admin}">Admin</a>
+        <a th:href="@{/board}">게시판</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>회원 관리</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>아이디</th>
+                <th>이메일</th>
+                <th>권한</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user, iterStat : ${users}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.role}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section style="margin-top:2rem;">
+        <h2>게시글 관리</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post, iterStat : ${posts}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${post.title}"></td>
+                <td th:text="${post.author}"></td>
+                <td th:text="${post.createdDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

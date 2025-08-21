@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>접근 거부</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+  <h1>🚫 접근 거부</h1>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/login}">로그인</a>
+    <a th:href="@{/signup}">회원가입</a>
+  </nav>
+</header>
+<main>
+  <section style="text-align:center; margin-top:3rem;">
+    <h2>권한이 필요합니다!</h2>
+    <p>해당 페이지에 접근하려면 권한이 필요합니다.</p>
+    <p>
+      <a th:href="@{/login}" class="btn">로그인</a>
+      <a th:href="@{/signup}" class="btn">회원가입</a>
+    </p>
+  </section>
+</main>
+</body>
+</html>

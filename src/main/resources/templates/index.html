@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>🏠 메인 화면</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/login}">로그인</a>
+        <a th:href="@{/signup}">회원가입</a>
+        <a th:href="@{/board}">게시판</a>
+        <a th:href="@{/admin}">관리자 전용</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>환영합니다!</h2>
+        <p>이곳은 메인 페이지입니다.</p>
+    </section>
+</main>
+</body>
+</html>
