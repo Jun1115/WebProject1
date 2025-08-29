@@ -17,9 +17,9 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/board")
-    public String board() {
-        return "board";
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
     }
 
     @GetMapping("/access-denied")

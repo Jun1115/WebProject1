@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>로그인</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - Crew Manager</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-<header>
-    <h1>🔑 로그인</h1>
-</header>
-<main>
-    <form th:action="@{/login}" method="post" class="form-card">
-        <label>아이디
-            <input type="text" name="username" required>
-        </label>
-        <label>비밀번호
-            <input type="password" name="password" required>
-        </label>
-        <button type="submit">로그인</button>
-    </form>
-    <p>계정이 없으신가요? <a th:href="@{/signup}">회원가입</a></p>
-</main>
+<body class="dark-mode">
+<div class="login-page-container">
+    <div class="login-card">
+        <img th:src="@{/images/CrewManager.png}" alt="Crew Manager Logo" class="crew-logo">
+        <form th:action="@{/login}" method="post" class="login-form">
+            <input type="text" placeholder="아이디, 이메일 주소 또는 전화번호" required class="input-field">
+            <input type="password" placeholder="비밀번호" required class="input-field">
+            <button type="submit" class="btn primary-btn">로그인</button>
+        </form>
+        <div class="divider">또는</div>
+        <a th:href="@{#}" class="btn kakao-login-btn">카카오톡으로 로그인</a>
+        <a th:href="@{#}" class="forgot-password-link">비밀번호를 잊으셨나요?</a>
+    </div>
+    <div class="signup-card">
+        <p>계정이 없으신가요? <a th:href="@{/signup}">가입하기</a></p>
+    </div>
+</div>
 </body>
 </html>
