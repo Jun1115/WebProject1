@@ -32,6 +32,7 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
+    // 비밀번호 암호화
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
