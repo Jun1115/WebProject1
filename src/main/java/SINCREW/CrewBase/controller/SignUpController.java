@@ -2,10 +2,8 @@ package SINCREW.CrewBase.controller;
 
 import SINCREW.CrewBase.dto.SignUpDTO;
 import SINCREW.CrewBase.service.SignUpService;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 

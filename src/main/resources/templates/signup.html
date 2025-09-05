@@ -17,17 +17,18 @@
 
       <input type="text" name="username" placeholder="성명" required class="input-field" autocomplete="off">
       <input type="text" name="phone" id="phone" placeholder="전화번호" required class="input-field" autocomplete="off">
-      <input type="email" name="email" placeholder="이메일 주소" required class="input-field" autocomplete="off">
+      <div class="input-group">
+        <input type="email" name="email" id="email" placeholder="이메일 주소" required class="input-field" autocomplete="off">
+        <button type="button" id="send-code-btn" class="btn primary-btn">인증번호 전송</button>
+      </div>
+
+      <div class="input-group hidden" id="verification-group">
+        <input type="text" name="verificationCode" id="verificationCode" placeholder="인증번호" required class="input-field" autocomplete="off">
+        <button type="button" id="verify-code-btn" class="btn primary-btn">확인</button>
+      </div>
       <input type="password" name="password" placeholder="비밀번호" required class="input-field" autocomplete="off">
       <button type="submit" class="btn primary-btn">가입</button>
     </form>
-<!--    <form th:action="@{/signup}" method="post" class="login-form">-->
-<!--      <input type="text" placeholder="성명" required class="input-field" autocomplete='off'>-->
-<!--      <input type="text" id="phone" placeholder="전화번호" required class="input-field" autocomplete='off'>-->
-<!--      <input type="email" placeholder="이메일 주소" required class="input-field" autocomplete='off'>-->
-<!--      <input type="password" placeholder="비밀번호" required class="input-field" autocomplete='off'>-->
-<!--      <button type="submit" class="btn primary-btn">가입</button>-->
-<!--    </form>-->
     <div class="divider">또는</div>
     <a th:href="@{#}" class="btn kakao-login-btn social-signup-btn">카카오톡으로 회원가입</a>
 
