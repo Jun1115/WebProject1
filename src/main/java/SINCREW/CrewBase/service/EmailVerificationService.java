@@ -1,6 +1,7 @@
 package SINCREW.CrewBase.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value; // 1. @Value 어노테이션 임포트
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,6 +16,10 @@ public class EmailVerificationService {
 
     private final JavaMailSender mailSender;
     private final StringRedisTemplate redisTemplate;
+
+    // 2. application.properties에서 spring.mail.username 값 주입
+    @Value("${spring.mail.username}")
+    private String fromAddress;
 
     private static final String AUTH_CODE_PREFIX = "AuthCode ";
     private static final int CODE_LENGTH = 6;
@@ -35,6 +40,8 @@ public class EmailVerificationService {
 
         // 3. 이메일 내용 구성 및 전송
         SimpleMailMessage message = new SimpleMailMessage();
+        // 3-1. ⭐ 발신자 주소 설정 추가 (가장 중요)
+        message.setFrom(fromAddress);
         message.setTo(email);
         message.setSubject("[회원가입] 이메일 인증 코드입니다.");
         message.setText("인증 코드: " + authCode + "\n\n제한 시간: 5분");
