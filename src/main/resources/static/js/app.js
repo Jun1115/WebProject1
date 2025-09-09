@@ -20,6 +20,8 @@ phoneInput.addEventListener('input', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // 변수 선언
     const emailInput = document.getElementById('email');
     const sendCodeBtn = document.getElementById('send-code-btn');
     const verificationCodeInput = document.getElementById('verificationCode');
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('서버 오류가 발생했습니다.');
+            alert('서버 오류가 발생했습니다. 관리자에게 문의해주세요.');
         }
     });
 
@@ -74,7 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 alert('이메일 인증이 성공적으로 완료되었습니다.');
                 finalSignupBtn.disabled = false;
-                emailInput.disabled = true;
+
+                // ⭐ 이메일 필드를 disabled 대신 readonly로 변경
+                emailInput.readOnly = true;
+                emailInput.style.backgroundColor = '#e9e9e9'; // 시각적으로 비활성화된 것처럼 보이게 함
+
                 verificationCodeInput.disabled = true;
                 sendCodeBtn.disabled = true;
                 verifyCodeBtn.disabled = true;

@@ -1,7 +1,7 @@
 package SINCREW.CrewBase.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value; // 1. @Value 어노테이션 임포트
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,13 +17,14 @@ public class EmailVerificationService {
     private final JavaMailSender mailSender;
     private final StringRedisTemplate redisTemplate;
 
-    // 2. application.properties에서 spring.mail.username 값 주입
     @Value("${spring.mail.username}")
     private String fromAddress;
 
     private static final String AUTH_CODE_PREFIX = "AuthCode ";
+    private static final String VERIFIED_PREFIX = "Verified "; // 인증 완료 상태를 저장할 접두사
     private static final int CODE_LENGTH = 6;
     private static final long CODE_VALIDITY_SECONDS = 300; // 5분
+    private static final long VERIFIED_VALIDITY_SECONDS = 600; // 인증 완료 상태 유효 시간 (10분)
 
     // 이메일로 인증 코드 전송
     public void sendVerificationEmail(String email) {
@@ -40,7 +41,6 @@ public class EmailVerificationService {
 
         // 3. 이메일 내용 구성 및 전송
         SimpleMailMessage message = new SimpleMailMessage();
-        // 3-1. ⭐ 발신자 주소 설정 추가 (가장 중요)
         message.setFrom(fromAddress);
         message.setTo(email);
         message.setSubject("[회원가입] 이메일 인증 코드입니다.");
@@ -61,7 +61,20 @@ public class EmailVerificationService {
 
         // 3. 인증 성공 시, Redis에서 인증 코드 삭제 (재사용 방지)
         redisTemplate.delete(redisKey);
+        // ⭐ 4. 인증 완료 상태를 Redis에 저장
+        redisTemplate.opsForValue().set(VERIFIED_PREFIX + email, "true", VERIFIED_VALIDITY_SECONDS, TimeUnit.SECONDS);
         return true;
+    }
+
+    // ⭐ 인증 완료 상태를 확인하는 메서드 추가
+    public boolean isVerified(String email) {
+        String redisKey = VERIFIED_PREFIX + email;
+        return Boolean.TRUE.equals(redisTemplate.hasKey(redisKey));
+    }
+
+    // ⭐ 회원가입 후 인증 완료 상태를 삭제하는 메서드 추가
+    public void removeVerificationStatus(String email) {
+        redisTemplate.delete(VERIFIED_PREFIX + email);
     }
 
     // 6자리 랜덤 인증 코드 생성
