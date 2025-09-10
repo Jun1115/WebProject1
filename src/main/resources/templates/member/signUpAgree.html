@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 - 1단계</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div id="signup-agree-page" class="page-container">
+    <div class="form-card">
+      <div class="step-indicator-wrapper">
+        <div class="step-indicator">
+          <div class="step-item">
+            <span class="step-number active">1단계</span>
+            <span class="step-text">약관동의</span>
+          </div>
+          <div class="step-item">
+            <span class="step-number">2단계</span>
+            <span class="step-text">회원정보입력</span>
+          </div>
+          <div class="step-item">
+            <span class="step-number">3단계</span>
+            <span class="step-text">가입완료</span>
+          </div>
+        </div>
+      </div>
+      <h2>약관동의</h2>
+      <h3>1단계 | 3단계</h3>
+      <div class="terms-container">
+        <div class="terms-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="termsAll">
+            모두 동의합니다.
+          </label>
+        </div>
+        <div class="terms-item">
+          <label class="checkbox-label">
+            <input type="checkbox" class="terms-checkbox" required>
+            이용 약관 동의 (필수)
+          </label>
+          <button class="view-terms">내용 보기</button>
+        </div>
+        <div class="terms-item">
+          <label class="checkbox-label">
+            <input type="checkbox" class="terms-checkbox" required>
+            개인정보 수집 및 이용 동의 (필수)
+          </label>
+          <button class="view-terms">내용 보기</button>
+        </div>
+        <div class="terms-item">
+          <label class="checkbox-label">
+            <input type="checkbox" class="terms-checkbox">
+            마케팅 정보 수신 동의 (선택)
+          </label>
+          <button class="view-terms">내용 보기</button>
+        </div>
+      </div>
+      <div class="button-row">
+        <a th:href="@{/}" class="btn secondary-btn">취소하기</a>
+        <a th:href="@{/member/signUp}" class="btn primary-btn" id="nextBtn" disabled>다음</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

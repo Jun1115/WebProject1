@@ -51,8 +51,8 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/signup", "/dashboard", "/sidebar_fragment").permitAll()
-                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/login", "/", "/dashboard").permitAll()
+                        .requestMatchers("/member/**", "/api/**").permitAll()
                         .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                         .anyRequest().authenticated());
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 완료 | CrewManager</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div id="signup-complete-page" class="page-container">
+    <div class="form-card" style="text-align: center;">
+      <div class="step-indicator">
+        <span class="step complete">1단계</span>
+        <span class="step-text">약관동의</span>
+        <span class="step complete">2단계</span>
+        <span class="step-text">회원정보입력</span>
+        <span class="step active">3단계</span>
+        <span class="step-text">가입완료</span>
+      </div>
+      <h2>회원가입 완료! 🎉</h2>
+      <p>Crew Management System의 회원이 되신 것을 진심으로 환영합니다!</p>
+      <a th:href="@{/login}" class="btn primary-btn" style="margin-top: 2rem;">로그인 페이지로 이동</a>
+    </div>
+  </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

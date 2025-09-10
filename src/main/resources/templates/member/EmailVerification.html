@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이메일 인증 | CrewManager</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container popup-container">
+  <div class="form-card">
+    <h2>이메일 인증</h2>
+    <p>입력하신 이메일 주소로 인증번호가 발송되었습니다.</p>
+    <form id="emailVerificationForm">
+      <div class="input-group">
+        <input type="text" id="verificationCode" placeholder="인증번호" required>
+      </div>
+      <button type="submit" class="btn primary-btn btn-full-width">인증 확인</button>
+    </form>
+    <div class="button-row">
+      <button class="btn secondary-btn" onclick="window.close()">닫기</button>
+    </div>
+  </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

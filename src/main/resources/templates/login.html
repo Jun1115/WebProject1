@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인 - Crew Manager</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인 - Crew Manager</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
 
-<body>
-<div class="container">
-    <div id="login-page" class="page-container" style="display: flex;">
-        <div class="form-card">
-            <h2>로그인</h2>
-            <form th:action="@{/login}" method="post" class="login-form" id = "loginForm">
-                <div class="input-group">
-                    <input type="text" name="identifier" placeholder="이메일 주소 또는 전화번호" required class="input-field">
+    <body>
+        <div class="container">
+            <div id="login-page" class="page-container" style="display: flex;">
+                <div class="form-card">
+                    <h2>로그인</h2>
+                    <form th:action="@{/login}" method="post" class="login-form" id = "loginForm">
+                        <div class="input-group">
+                            <input type="text" name="identifier" placeholder="이메일 주소 또는 전화번호" required class="input-field">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" placeholder="비밀번호" required class="input-field">
+                        </div>
+                    <button type="submit" class="btn primary-btn btn-full-width">로그인</button>
+                    </form>
+                    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-color-light);">
+                        아직 회원이 아니신가요? <a th:href="@{/member/signUpAgree}" style="color: var(--primary-color);">회원가입</a>
+                    </p>
                 </div>
-                <div class="input-group">
-                    <input type="password" name="password" placeholder="비밀번호" required class="input-field">
-                </div>
-            <button type="submit" class="btn primary-btn">로그인</button>
-        </form>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-color-light);">
-                아직 회원이 아니신가요? <a th:href="@{/signup}" style="color: var(--primary-color);">회원가입</a>
-            </p>
-    </div>
-</div>
-    <script th:src="@{/js/app.js}"></script>
-</body>
+            </div>
+        </div>
+        <script th:src="@{/js/app.js}"></script>
+    </body>
 </html>
