@@ -110,7 +110,7 @@ h3 {
 
 .input-field {
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
@@ -153,7 +153,9 @@ h3 {
 }
 
 .button-row .btn {
-    flex: 1; /* 버튼 너비 동일하게 */
+    flex: none; /* 버튼 너비 동일하게 */
+    width: 120px;
+    padding: 0.5rem 0rem;
     text-align: center; /* 버튼 내부 텍스트 중앙 정렬 */
 }
 
