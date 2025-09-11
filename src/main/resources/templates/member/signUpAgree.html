@@ -30,43 +30,48 @@
         </div>
       </div>
       <h2>약관동의</h2>
+      <div th:if="${errorMessage}" class="error-message">
+        <p th:text="${errorMessage}"></p>
+      </div>
       <h3>1단계 | 3단계</h3>
-      <div class="terms-container">
-        <div class="terms-item">
-          <label class="checkbox-label">
-            <input type="checkbox" id="termsAll">
-            모두 동의합니다.
-          </label>
+      <form id="termsForm" th:action="@{/member/signUpAgree}" method="post">
+        <div class="terms-container">
+          <div class="terms-item">
+            <label class="checkbox-label">
+              <input type="checkbox" id="termsAll">
+              모두 동의합니다.
+            </label>
+          </div>
+          <div class="terms-item">
+            <label class="checkbox-label">
+              <input type="checkbox" class="terms-checkbox required" name="serviceTermsAgreed">
+              이용 약관 동의 (필수)
+            </label>
+            <button type="button" class="view-terms">내용 보기</button>
+          </div>
+          <div class="terms-item">
+            <label class="checkbox-label">
+              <input type="checkbox" class="terms-checkbox required" name="privacyPolicyAgreed">
+              개인정보 수집 및 이용 동의 (필수)
+            </label>
+            <button type="button" class="view-terms">내용 보기</button>
+          </div>
+          <div class="terms-item">
+            <label class="checkbox-label">
+              <input type="checkbox" class="terms-checkbox" name="marketingAgreed">
+              마케팅 정보 수신 동의 (선택)
+            </label>
+            <button type="button" class="view-terms">내용 보기</button>
+          </div>
         </div>
-        <div class="terms-item">
-          <label class="checkbox-label">
-            <input type="checkbox" class="terms-checkbox" required>
-            이용 약관 동의 (필수)
-          </label>
-          <button class="view-terms">내용 보기</button>
+        <div class="button-row">
+          <a th:href="@{/}" class="btn secondary-btn">취소하기</a>
+          <button type="submit" class="btn primary-btn" id="nextBtn">다음</button>
         </div>
-        <div class="terms-item">
-          <label class="checkbox-label">
-            <input type="checkbox" class="terms-checkbox" required>
-            개인정보 수집 및 이용 동의 (필수)
-          </label>
-          <button class="view-terms">내용 보기</button>
-        </div>
-        <div class="terms-item">
-          <label class="checkbox-label">
-            <input type="checkbox" class="terms-checkbox">
-            마케팅 정보 수신 동의 (선택)
-          </label>
-          <button class="view-terms">내용 보기</button>
-        </div>
-      </div>
-      <div class="button-row">
-        <a th:href="@{/}" class="btn secondary-btn">취소하기</a>
-        <a th:href="@{/member/signUp}" class="btn primary-btn" id="nextBtn" disabled>다음</a>
-      </div>
+      </form>
     </div>
   </div>
 </div>
-<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/app.js}"></script>
 </body>
 </html>
