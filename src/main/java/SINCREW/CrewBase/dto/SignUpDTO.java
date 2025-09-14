@@ -1,6 +1,9 @@
 package SINCREW.CrewBase.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,19 +11,22 @@ import lombok.Setter;
 @Getter
 public class SignUpDTO {
 
-    @NotEmpty
+    @NotEmpty(message = "이름을 입력해주세요.")
     private String username;
 
-    @NotEmpty
+    @NotEmpty(message = "전화번호를 입력해주세요.")
+    @Pattern(regexp = "\\d+", message = "전화번호는 숫자만 입력해주세요.")
     private String phone;
 
-    @NotEmpty
+    @NotEmpty(message = "이메일을 입력해주세요.")
+    @Email(message = "올바른 이메일 형식을 입력해주세요.")
     private String email;
 
-    @NotEmpty
+    @NotEmpty(message = "비밀번호를 입력해주세요.")
+    @Size(min = 8, max = 20, message = "비밀번호는 8~20자여야 합니다.")
+    @Pattern(
+            regexp = "^[^><_'\"]*$",
+            message = "비밀번호에 >, <, _, ', \" 문자는 사용할 수 없습니다."
+    )
     private String password;
 }
-
-// @Valid 어노테이션 쓰려고 했는데 클라이언트 입장에서 생각해보면 입력할 때 즉시 피드백이 있는게 좋지 않을 까 싶음
-// 꾸역꾸역 다 입력하고 회원가입 눌렀을 때 피드백을 와다다 주면 귀찮을 것 같음
-// 고로 html, js를 사용하는게 낫다고 판단하겠습니다.
