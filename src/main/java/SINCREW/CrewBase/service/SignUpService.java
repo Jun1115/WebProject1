@@ -38,7 +38,7 @@ public class SignUpService {
         data.setPhone(phone);
         data.setEmail(email);
         data.setPassword(bCryptPasswordEncoder.encode(password));
-        data.setRole("ROLE_ADMIN");
+        data.setRole("ROLE_USER");
 
         userRepository.save(data);
     }

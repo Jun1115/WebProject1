@@ -474,3 +474,18 @@ h3 {
     margin-top: 2rem;
 }
 
+
+.email-verification-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.email-verification-wrapper .input-field {
+    flex-grow: 1;
+}
+
+.email-verification-wrapper .btn {
+    width: 140px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}

@@ -55,18 +55,23 @@ public class MemberController {
 
         try {
             // ⭐ 이메일 인증 완료 상태 확인
+            System.out.println("회원가입 요청 시작: " + signUpDTO.getEmail()); // ⭐ 로그 추가
+
+            // ⭐ 이메일 인증 완료 상태 확인
             if (!emailVerificationService.isVerified(signUpDTO.getEmail())) {
+                System.out.println("이메일 인증 실패: " + signUpDTO.getEmail()); // ⭐ 로그 추가
                 model.addAttribute("errorMessage", "이메일 인증을 먼저 완료해주세요.");
-                return "member/signUp"; // 인증 실패 시 다시 회원가입 페이지로
+                return "member/signUp";
             }
 
+            System.out.println("이메일 인증 성공. 회원가입 진행."); // ⭐ 로그 추가
             // 인증이 완료된 경우에만 회원가입 로직 진행
             signUpService.joinProcess(signUpDTO);
 
             // 회원가입 성공 후 Redis에서 인증 상태 삭제
             emailVerificationService.removeVerificationStatus(signUpDTO.getEmail());
 
-            return "redirect:/login";
+            return "redirect:/member/signUpComplete";
 
         } catch (IllegalArgumentException e) {
             model.addAttribute("errorMessage", e.getMessage());
