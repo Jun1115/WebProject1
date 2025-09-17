@@ -1,6 +1,7 @@
 package SINCREW.CrewBase.config;
 
 import SINCREW.CrewBase.jwt.CustomAccessDeniedHandler;
+import SINCREW.CrewBase.jwt.JWTFilter;
 import SINCREW.CrewBase.jwt.JWTUtil;
 import SINCREW.CrewBase.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
@@ -56,10 +57,14 @@ public class SecurityConfig {
                         .requestMatchers("/login", "/").permitAll()
                         .requestMatchers("/member/**", "/api/**").permitAll()
                         .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
+
                         .anyRequest().authenticated());
 
-        //AuthenticationManager()와 JWTUtil 인수 전달
+        //JWTFilter 등록
+        http
+                .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
 
+        //AuthenticationManager()와 JWTUtil 인수 전달
         http
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
 

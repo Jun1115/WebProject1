@@ -2,6 +2,7 @@ package SINCREW.CrewBase.jwt;
 
 import SINCREW.CrewBase.dto.CustomUserDetails;
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +12,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -26,8 +28,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-
-
         //클라이언트 요청에서 identifier, password 추출
         String identifier = request.getParameter("identifier");
         String password = obtainPassword(request);
@@ -57,13 +57,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String token = jwtUtil.createJwt(username, role, 60*60*10L);
 
         response.addHeader("Authorization", "Bearer " + token);
-
-        // 로그인 성공 후 리다이렉트
-        try {
-            response.sendRedirect("/dashboard");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
     //로그인 실패시 실행하는 메소드
