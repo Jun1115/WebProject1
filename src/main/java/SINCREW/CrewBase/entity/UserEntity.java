@@ -24,4 +24,18 @@ public class UserEntity {
     private String password;
 
     private String role;
+
+
+    // 기본 생성자 (JPA 필수)
+    public UserEntity() {}
+
+    // 편리한 생성자
+    public UserEntity(String email, String password, String phone, String role, String username) {
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.role = role;
+        this.username = username;
+    }
+
 }
