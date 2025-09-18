@@ -13,7 +13,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.intercept.AuthorizationFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.SecurityContextHolderFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -32,6 +34,8 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
+
+
 
     // 비밀번호 암호화
     @Bean
@@ -60,13 +64,16 @@ public class SecurityConfig {
 
                         .anyRequest().authenticated());
 
-        //JWTFilter 등록
-        http
-                .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
 
         //AuthenticationManager()와 JWTUtil 인수 전달
         http
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
+        //JWTFilter 등록
+        http
+                .addFilterBefore(new JWTFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
+
+        // 익명 사용자를 위한 기본 인증 필터를 비활성화
+        http.anonymous(anonymous -> anonymous.disable());
 
         http
                 .sessionManagement((session) -> session
@@ -74,10 +81,6 @@ public class SecurityConfig {
 
         http.exceptionHandling(exception -> exception
                 .accessDeniedPage("/access-denied") // 접근 거부 시 표시할 페이지
-        );
-
-        // 🚀 접근 거부 시 커스텀 핸들러 사용
-        http.exceptionHandling(exception -> exception
                 .accessDeniedHandler(new CustomAccessDeniedHandler())
         );
 
