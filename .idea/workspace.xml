@@ -5,7 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287c581d-49b2-401f-a3d3-5bebb44ec4a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/jwt/JWTFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/jwt/JWTFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/jwt/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/jwt/LoginFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/service/EmailVerificationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/SINCREW/CrewBase/service/EmailVerificationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/401.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/401.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/assets/demo/chart-area-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/assets/demo/chart-bar-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/assets/demo/chart-pie-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/assets/demo/datatables-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/assets/img/error-404-monochrome.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/js/datatables-simple-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/layout-sidenav-light.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/layout-sidenav-light.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/layout-static.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/layout-static.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/password.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/dashboard/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/dashboard/tables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/sidebar_fragment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MainController.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/jwt/JWTFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/jwt/JWTFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/jwt/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/jwt/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/service/EmailVerificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SINCREW/CrewBase/service/EmailVerificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/401.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/401.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/assets/demo/chart-area-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/assets/demo/chart-area-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/assets/demo/chart-bar-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/assets/demo/chart-bar-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/assets/demo/chart-pie-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/assets/demo/chart-pie-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/assets/demo/datatables-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/assets/demo/datatables-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/assets/img/error-404-monochrome.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/assets/img/error-404-monochrome.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dashboard/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/js/datatables-simple-demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/layout-sidenav-light.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/layout-sidenav-light.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/layout-static.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/layout-static.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/tables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sidebar_fragment.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +97,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Dockerfile" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,24 +112,25 @@
 }</component>
   <component name="ProjectId" id="32Sg80H0zP2Kb8htFRaXEZKSyEt" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CrewBaseApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.BackEnd [:SINCREW.CrewBase.CrewBaseApplication.main()].executor": "Run",
-    "Gradle.WebProject1 [:SINCREW.CrewBase.CrewBaseApplication.main()].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CrewBaseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.BackEnd [:SINCREW.CrewBase.CrewBaseApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WebProject1 [:SINCREW.CrewBase.CrewBaseApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/dashboard" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/member" />
     </key>
   </component>

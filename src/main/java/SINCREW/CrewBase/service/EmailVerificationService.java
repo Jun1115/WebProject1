@@ -1,5 +1,6 @@
 package SINCREW.CrewBase.service;
 
+import SINCREW.CrewBase.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -16,6 +17,7 @@ public class EmailVerificationService {
 
     private final JavaMailSender mailSender;
     private final StringRedisTemplate redisTemplate;
+    private final UserRepository userRepository;
 
     @Value("${spring.mail.username}")
     private String fromAddress;
@@ -28,6 +30,11 @@ public class EmailVerificationService {
 
     // 이메일로 인증 코드 전송
     public void sendVerificationEmail(String email) {
+
+        if (userRepository.existsByEmail(email)) {
+            throw new IllegalArgumentException("이미 가입된 이메일입니다.");
+        }
+
         // 1. 랜덤 인증 코드 생성
         String authCode = generateRandomCode();
 

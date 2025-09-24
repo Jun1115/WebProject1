@@ -3,6 +3,7 @@ package SINCREW.CrewBase.controller;
 import SINCREW.CrewBase.dto.EmailRequestDto;
 import SINCREW.CrewBase.dto.SignUpDTO;
 import SINCREW.CrewBase.dto.VerificationRequestDto;
+import SINCREW.CrewBase.repository.UserRepository;
 import SINCREW.CrewBase.service.EmailVerificationService; // EmailVerificationService 임포트 추가
 import SINCREW.CrewBase.service.SignUpService;
 import lombok.RequiredArgsConstructor; // Lombok 사용 시 추가
@@ -19,6 +20,7 @@ public class MemberController {
 
     private final SignUpService signUpService;
     private final EmailVerificationService emailVerificationService; // EmailVerificationService 주입
+    private final UserRepository userRepository;
 
 //  1단계 회원가입 약관동의
     @GetMapping("/signUpAgree")
@@ -83,6 +85,11 @@ public class MemberController {
     // 인증 코드 전송 API
     @PostMapping("/api/send-verification-code")
     public ResponseEntity<String> sendVerificationCode(@RequestBody EmailRequestDto request) {
+        // ⭐ 중복 체크 추가
+        if (userRepository.existsByEmail(request.getEmail())) {
+            return ResponseEntity.badRequest().body("이미 가입된 이메일입니다.");
+        }
+
         emailVerificationService.sendVerificationEmail(request.getEmail());
         return ResponseEntity.ok("인증 코드가 이메일로 전송되었습니다.");
     }

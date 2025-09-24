@@ -6,10 +6,12 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
@@ -83,12 +85,20 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().write("Login successful!");
 
-//        response.addHeader("Authorization", "Bearer " + token);
+        // 로그인 성공 시 대시보드로 이동
+        response.sendRedirect("/dashboard/dashboard");
     }
-
     //로그인 실패시 실행하는 메소드
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException {
 
+        // 실패 원인과 관계없이 동일한 메시지를 설정
+        String errorMessage = "아이디 또는 비밀번호가 잘못되었습니다.";
+
+        // 실패 메시지를 세션에 저장
+        request.getSession().setAttribute("loginError", errorMessage);
+
+        // 로그인 페이지로 리디렉션
+        response.sendRedirect("/login");
     }
 }

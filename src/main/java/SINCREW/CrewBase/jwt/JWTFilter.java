@@ -16,14 +16,16 @@ import java.io.IOException;
 
 public class JWTFilter extends OncePerRequestFilter {
 
+    // 생성자 주입
     private final JWTUtil jwtUtil;
-
     public JWTFilter(JWTUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
 
         // 1. request에서 쿠키들을 가져옵니다.
         Cookie[] cookies = request.getCookies();
@@ -74,6 +76,13 @@ public class JWTFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authToken);
 
             System.out.println("JWT 토큰 유효, 인증 정보 저장 완료: " + username);
+
+            String requestURI = request.getRequestURI();
+
+            if (requestURI.equals("/login") || requestURI.startsWith("/member") || requestURI.equals("/")) {
+                response.sendRedirect("/dashboard/dashboard");
+                return;
+            }
 
             // 8. 다음 필터로 진행합니다.
             filterChain.doFilter(request, response);

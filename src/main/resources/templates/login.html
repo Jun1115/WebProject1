@@ -22,6 +22,12 @@
                         <div class="input-group">
                             <input type="password" name="password" placeholder="비밀번호" required class="input-field">
                         </div>
+
+                        <!-- 로그인 실패 메시지 -->
+                        <div th:if="${loginError}" style="color: red;">
+                            <p th:text="${loginError}"></p>
+                        </div>
+
                     <button type="submit" class="btn primary-btn btn-full-width">로그인</button>
                     </form>
                     <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-color-light);">
@@ -30,6 +36,5 @@
                 </div>
             </div>
         </div>
-<!--        <script th:src="@{/js/login.js}"></script>-->
     </body>
 </html>
